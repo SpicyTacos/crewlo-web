@@ -1,0 +1,226 @@
+@import url(https://fonts.googleapis.com/css?family=Archivo+Narrow:400,700);
+@import "ember-modal-dialog/ember-modal-structure";
+@import "ember-modal-dialog/ember-modal-appearance";
+body {
+    height: 100%;
+    line-height: 1;
+    font-size: 14px;
+    font-family: 'Archivo Narrow', sans-serif;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* I'm not entirely sure we want padding on the body at all
+    maybe we will control this in the body's containers
+    padding-top: 65px;
+    padding-bottom: 65px;
+    */
+}
+a:hover {
+    cursor: pointer;
+}
+.main-login, .main-register {
+    position: absolute;
+    /*padding-top: 40px;
+    padding-bottom: 40px;*/
+    top:0;
+    bottom:0;
+    width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #fff;
+    /*background-color: rgba(47, 47, 56, 0.3);*/
+}
+.login-form-main, .register-form-main {
+    padding: 36px;
+    margin: 0 auto;
+    width: 100%;
+    border-radius: 3px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+.login-form .form-control, .register-form .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.login-form input[type="text"], .register-form input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.register-form input[type="text"]{
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+.login-form input[type="password"], .register-form input[type="password"] {
+    margin-bottom: 10px;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+}
+.login-form-heading, .register-form-heading {
+    margin-bottom: 20px;
+    margin-top:0;
+    text-align: center;
+}
+p.signup {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.main {
+    height: 8000px;
+    margin-top: 50px;
+}
+
+@media (min-width: 568px) {
+    .main-login, .main-register {
+        background-image: url('/assets/images/bg-full.jpg');
+    }
+    .login-form-main, .register-form-main {
+        width: 465px;
+        background-color: rgba(47, 47, 56, 0.3);
+    }
+    .main {
+        height: 8000px;
+        margin-top: 85px;
+    }
+}
+
+.main-nav {
+    background: #fff;
+    color: rgba(0,0,0,0.3);
+    height: 65px;
+    position: fixed;
+    top: 0;
+    transition: top 0.2s ease-in-out;
+    width: 100%;
+    z-index: 500;
+    display: block;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
+    box-shadow: 0 0 1px rgba(0,0,0,0.15);
+    border-color: transparent;
+    border-width: 0;
+}
+
+/*.main-nav > .container {
+    margin-top: 8px;
+}*/
+.nav-up {
+    top: -68px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    padding-top: 31px;
+    padding-bottom: 16px;
+    font-weight: 100;
+    font-style: normal;
+    display: inline-block;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav > li.active {
+    display: inline-block;
+    margin-right: 20px;
+    margin-top: -1px;
+    border-bottom: 2px rgba(0,0,0,0.8) solid;
+}
+.navbar-default .navbar-nav > .active > a {
+    background-color: #fff;
+    font-weight: 700;
+}
+
+/*** hamburger menu ***/
+.navbar-default .in, .navbar-default .collapsing {
+    margin-top: 15px;
+}
+.navbar-default .in .navbar-nav > li, .navbar-default .collapsing .navbar-nav > li  {
+    display: block;
+    background-color: #fff;
+}
+.navbar-default .in .navbar-nav > li > a, .navbar-default .collapsing .navbar-nav > li > a {
+    display: block;
+    padding-top: 10px;
+}
+
+.new-post-modal {
+    box-shadow: none;
+    background-color: #fff;
+    border-radius: 3px;
+    margin: 20px auto;
+    overflow: auto;
+    list-style: none;
+}
+.new-post-div {
+    width: 320px;
+}
+.new-post-div img {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.ember-modal-dialog {
+    z-index: 502;
+}
+.ember-modal-overlay {
+    z-index: 502;
+}
+
+
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.fadeIn {
+    opacity: 0;
+    -webkit-animation: fadeIn;
+    -moz-animation: fadeIn;
+    animation: fadeIn;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 200ms;
+    -moz-animation-delay: 200ms;
+    animation-delay: 200ms;
+}
+@-webkit-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@-moz-keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+@keyframes fadeOut { from { opacity:1; } to { opacity:0; } }
+.fadeOut {
+    opacity: 1;
+    -webkit-animation: fadeOut;
+    -moz-animation: fadeOut;
+    animation: fadeOut;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 1s;
+    -moz-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-delay: 200ms;
+    -moz-animation-delay: 200ms;
+    animation-delay: 200ms;
+}
+
+.slideLeft {
+    position: absolute;
+    left: 50%;
+    -webkit-animation: slideLeft 0.5s forwards;
+    animation: slideLeft 0.5s forwards;
+}
+
+@-webkit-keyframes slideLeft { from { left:100%; } to { left:0; } }
+@keyframes slideLeft { from { left:100%; } to { left:0; } }

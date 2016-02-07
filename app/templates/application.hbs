@@ -1,0 +1,27 @@
+<!--<h2 id="title">Welcome to Ember</h2>
+
+<div class="menu">
+    {{#if session.isAuthenticated}}
+        <a {{action 'invalidateSession'}}>Logout</a>
+    {{else}}
+        {{#link-to 'login'}}Login{{/link-to}}
+    {{/if}}
+    {{#link-to 'protected'}}Protected{{/link-to}}
+</div>
+-->
+
+{{#if session.isAuthenticated}}
+    {{main-nav showModalDialog='showModalDialog'}}
+    <div class="main container">
+        {{#link-to 'protected'}}Protected{{/link-to}}
+        {{outlet}}
+    </div>
+{{else}}
+    {{outlet}}
+{{/if}}
+
+{{#if isShowingModal}}
+    {{#newpost-modal close='closeModalDialog'}}
+        {{new-post-modal}}
+    {{/newpost-modal}}
+{{/if}}

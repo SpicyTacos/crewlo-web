@@ -1,0 +1,16 @@
+<div class="main-login">
+    <div class="login-form-main fadeIn">
+        <form class="login-form" {{action 'authenticateUser' on='submit'}}>
+            <h2 class="login-form-heading">crewlo</h2>
+            <label for="username" class="sr-only">Login</label>
+            {{input id='username' class="form-control" placeholder='Username' value=username}}
+            <label for="password" class="sr-only">Password</label>
+            {{input id='password' class="form-control" placeholder='Password' type='password' value=password}}
+            {{#if errorMessage}}
+                <p>{{errorMessage}}</p>
+            {{/if}}
+            <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+            <p class="signup">Don’t have a crewlo account? <a {{action 'fadeOutToRegister'}}>Sign up!</a></p>
+        </form>
+    </div>
+</div>

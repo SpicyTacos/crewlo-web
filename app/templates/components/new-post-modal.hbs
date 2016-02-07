@@ -1,0 +1,15 @@
+<div class="new-post-div">
+    <h3>add post</h3>
+    <div class="input-group">
+        {{input type="text" id='user-post-url' class="form-control" placeholder='http://some-page-with-pictures.com' value=userPostUrl}}
+        <span class="input-group-btn">
+            <button class="btn btn-default" type="button" {{action 'pressMe'}}>go</button>
+        </span>
+    </div>
+    {{#if urlCollection.length}}
+        {{#each urlCollection as |url|}}
+            <li><img src={{url}} style="max-width:200px;max-height:200px;float:left;"></li>
+        {{/each}}
+    {{/if}}
+    {{message}}
+</div>
